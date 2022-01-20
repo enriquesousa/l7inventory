@@ -7,55 +7,62 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+# Sección 1: Introducción
+## Laravel 7 - Inventory System With VueJs and JWT Token
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sistema de Inventario para Laravel 7 con VueJs y con Autenticación de JWT Token. En este proyecto aprenderemos: 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Create Complete Inventory Management System Project
+- Get a Deep Understanding of Laravel 7
+- Get a Deep Understanding of Vue Js
+- Get a Deep Understanding of Restful Api
+- Basic Vuejs Fundamentals
+- JWT Token Login Authentication
+- VueJs Filter Options
+- VueJs Events Methods
+- Product Search Option
+- JWT Implement in Project
+- Product Stock Management
+- Image Intervention With Validation
+- Basic Laravel 7 Fundamentals
+- Basic RESTful API Fundamentals
+- Project Add to Cart Option
+- VueJs Vue CLI
+- Create Rest API for Project
+- Product Report Option
+- Create Components for Project
+- Employee Salary System Option.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Sección 10: Implement JWT Token for Login Authentication
+## 176. Project JWT Implement
+## 177. Project Check and SignUp Part 1
+## 178. Project Check and SignUp Part 2
+## 179. Project Middleware
+## 180. Project Login with Token
+## 181. Project Helper Class
+## 182. Project Helper Token
+## 183. Project Helper User
+## 184. Project Store Token
+# Sección 11: Create Components for Admin
+## 185. Home Component After Login Part 1
+## 186. Home Component After Login Part 2
+## 187. Project Validation, Errors, Part 1
+## 188. Project Validation, Errors, Part 2
+## 189. Project Register, Logout Part 1
+## 190. Project Register, Logout Part 2
+## 191. Project Mastering Sidebar TopBar
+# Sección 12: Create CRUD for Employee Module
+## 192. Install Noty in Project
+## 193. Employee Module
+## 194. Component Load Part 1
+## 195. Component Load Part 2
+## 196. Component Load Part 3
+## 197. Image Intervention Part 1
+## 198. Image Intervention Part 2
+## 199. Employee Insert Part 1
+## 200. Employee Insert Part 2
+## 201. Read Data and Search Part 1
+## 202. Read Data and Search Part 2
+## 203. Edit, Delete, Unlink image Part 1
+## 204. Edit, Delete, Unlink image Part 2
+## 205. Edit, Delete, Unlink image Part 3
