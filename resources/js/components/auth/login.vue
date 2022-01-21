@@ -11,14 +11,14 @@
                                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                 </div>
 
-                                    <form class="user">
+                                    <form class="user" @submit.prevent="login">
 
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Correo Electrónico">
+                                            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Correo Electrónico" v-model="form.email">
                                         </div>
                                         
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Contraseña">
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Contraseña" v-model="form.password">
                                         </div>
 
                                         <div class="form-group">
@@ -30,13 +30,12 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <a href="index.html" class="btn btn-primary btn-block">Login</a>
+                                            <button type="submit" class="btn btn-primary btn-block">Login</button>
                                         </div>
                                         
                                         <hr>
                                         
                                     </form>
-
 
                                     <div class="text-center">
                                         <router-link to="/register" class="font-weight-bold small">Crear Cuenta!</router-link>
@@ -52,13 +51,28 @@
         </div>
     </div>
 </div>
-
 </template>
 
 <script type="text/javascript">
-
+export default {
+    data(){
+    return {
+      form:{
+        email: null,
+        password: null
+      }
+    }
+  },
+  methods:{
+    login(){
+        axios.post('/api/auth/login', this.form)
+        .then(res => User.responseAfterLogin(res))
+        .catch(error => console.log(error.response.data))
+    }
+  }
+}
 </script>
 
-<style>
+<style type="text/css">
 
 </style>
