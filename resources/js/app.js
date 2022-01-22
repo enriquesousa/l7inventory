@@ -1,6 +1,9 @@
 
 require('./bootstrap');
 
+// para que funcione con Vue3 use import * as Vue from 'vue'
+// Le  quite todo lo que es import y ya compilo con npm run dev
+// import * as Vue from 'vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -11,6 +14,29 @@ import {routes} from './routes';
 // Importar User Class
 import User from './Helpers/User';
 window.User = User
+
+// Importar Notification Class
+import Notification from './Helpers/Notification';
+window.Notification = Notification
+
+// Sweet Alert start
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+
+window.Toast = Toast;
+// Sweet Alert End
 
 const router = new VueRouter({
     routes,

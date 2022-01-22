@@ -3,7 +3,7 @@ class Token{
     isValid(token){
         const payload = this.payload(token)
         if (payload) {
-            return payload.iss = "https://homestead.l7inventory/api/auth/login" || "https://homestead.l7inventory/api/auth/signup" ? true : false
+            return payload.iss = "https://homestead.l7inventory/api/auth/login" || "https://homestead.l7inventory/api/auth/register" ? true : false
         }
         return false
     }
