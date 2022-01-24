@@ -1,4 +1,3 @@
-
 require('./bootstrap');
 
 // para que funcione con Vue3 use import * as Vue from 'vue'

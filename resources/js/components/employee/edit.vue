@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="row">
+    <div>
         <router-link to="/employee" class="btn btn-primary">Lista Empleados</router-link>
     </div>
     <div class="row justify-content-center">
@@ -11,19 +11,19 @@
                         <div class="col-lg-12">
                             <div class="login-form">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Añadir Empleado</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Editar Empleado</h1>
                                 </div>
 
-                                <form class="user" @submit.prevent="employeeInsert" enctype="multipart/form-data">
+                                <form class="user" @submit.prevent="employeeUpdate" enctype="multipart/form-data">
 
                                     <div class="form-group">
                                         <div class="form-row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Entre Nombre" v-model="form.name">
+                                                <input type="text" class="form-control" placeholder="Entre Nombre" v-model="form.name">
                                                 <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="email" class="form-control" id="exampleInputFirstName" placeholder="Entre Email" v-model="form.email">
+                                                <input type="email" class="form-control" placeholder="Entre Email" v-model="form.email">
                                                 <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
                                             </div>
                                         </div>
@@ -32,11 +32,11 @@
                                     <div class="form-group">
                                         <div class="form-row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Entre Dirección" v-model="form.address">
+                                                <input type="text" class="form-control" placeholder="Entre Dirección" v-model="form.address">
                                                 <small class="text-danger" v-if="errors.address"> {{ errors.address[0] }} </small>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Entre Salario" v-model="form.salary">
+                                                <input type="text" class="form-control" placeholder="Entre Salario" v-model="form.salary">
                                                 <small class="text-danger" v-if="errors.salary"> {{ errors.salary[0] }} </small>
                                             </div>
                                         </div>
@@ -45,11 +45,11 @@
                                     <div class="form-group">
                                         <div class="form-row">
                                             <div class="col-md-6">
-                                                <input type="date" class="form-control" id="exampleInputFirstName" placeholder="Entre Fecha de Inicio" v-model="form.joining_date">
+                                                <input type="date" class="form-control" placeholder="Entre Fecha de Inicio" v-model="form.joining_date">
                                                 <small class="text-danger" v-if="errors.joining_date"> {{ errors.joining_date[0] }} </small>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Entre Nid" v-model="form.nid">
+                                                <input type="text" class="form-control" placeholder="Entre Nid" v-model="form.nid">
                                                 <small class="text-danger" v-if="errors.nid"> {{ errors.nid[0] }} </small>
                                             </div>
                                         </div>
@@ -81,8 +81,9 @@
                                         </div>
                                     </div>
 
+                                    
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-block">Añadir</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
                                     </div>
 
                                 </form>
@@ -101,26 +102,35 @@
 export default {
 
     created(){
-      if (!User.loggedIn()){
+        if (!User.loggedIn()){
         this.$router.push({ name: 'home'})
-      }
+        }
     },
 
     data(){
-      return {
-        form:{
-          name: null,
-          email: null,
-          phone: null,
-          salary: null,
-          address: null,
-          photo: null,
-          nid: null,
-          joining_date: null,
-        },
-        errors:{
-        },
-      }
+        return {
+            form:{
+                name: '',
+                email: '',
+                phone: '',
+                salary: '',
+                address: '',
+                photo: '',
+                newphoto: '',
+                nid: '',
+                joining_date: '',
+            },
+            errors:{
+
+            },
+        }
+    },
+
+    created(){
+        let id = this.$route.params.id
+        axios.get('/api/employee/'+id)
+        .then(({data}) => (this.form = data))
+        .catch(console.log('error'))
     },
 
     methods:{
@@ -128,24 +138,24 @@ export default {
         onFileSelected(event){
             let file = event.target.files[0];
             if (file.size > 1048770){
-                Notification.image_validation();
+                Notification.image_validation()
             }else{
                 let reader = new FileReader();
                 reader.onload = event => {
-                    this.form.photo = event.target.result;
-                    console.log(event.target.result);
-                }
+                    this.form.newphoto = event.target.result
+                };
                 reader.readAsDataURL(file);
             }
-        },
+        },     
 
-        employeeInsert(){
-            axios.post('/api/employee', this.form)
+        employeeUpdate(){
+            let id = this.$route.params.id
+            axios.patch('/api/employee/'+id,this.form)
             .then(() => {
                 this.$router.push({ name: 'employee'})
                 Notification.success()
             })
-            .catch(error => this.errors = error.response.data.errors)
+            .catch(error =>this.errors = error.response.data.errors)
         },
 
     },

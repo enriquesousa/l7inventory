@@ -55,7 +55,7 @@
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <router-link class="collapse-item" to="/store-employee">Añadir Empleado</router-link>
-                                <router-link class="collapse-item" to="">Lista Empleados</router-link>
+                                <router-link class="collapse-item" to="/employee">Lista Empleados</router-link>
                             </div>
                         </div>
                     </li>
@@ -72,6 +72,22 @@
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <router-link class="collapse-item" to="">Añadir Proveedor</router-link>
                                 <router-link class="collapse-item" to="">Lista Proveedores</router-link>
+                            </div>
+                        </div>
+                    </li>
+
+                    {{-- User --}}
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2"
+                            aria-expanded="true" aria-controls="collapseBootstrap2">
+                            <i class="far fa-fw fa-window-maximize"></i>
+                            <span>Usuario</span>
+                        </a>
+                        <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <router-link to="" class="collapse-item" to="">Datos</router-link>
+                                <router-link to="/logout" class="collapse-item" to="">Salir</router-link>
                             </div>
                         </div>
                     </li>
@@ -341,7 +357,7 @@
 
                     <!-- Container Fluid-->
                     <div class="container-fluid" id="container-wrapper">
-
+                    @csrf
                         <router-view></router-view>
 
                     </div>
